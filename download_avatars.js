@@ -14,6 +14,11 @@ function getRepoContributors(repoOwner, repoName, cb) {
 
   request(options, function(err, res, body) {
     var repos = JSON.parse(body);
+    var result = [];
+    for (var i = 0; i < repos.length; i++){
+      result.push = repos[avatar_url];
+    }
+    console.log(result);
     cb(err, repos); //need to loop through the parsed data to find the avatar_url
   });
 }
