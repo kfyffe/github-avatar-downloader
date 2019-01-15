@@ -8,7 +8,7 @@ function getRepoContributors(repoOwner, repoName, cb) {
     url: "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/contributors",
     headers: {
       'User-Agent': 'request',
-      'Authorization': 'token' + gitToken,
+      'Authorization': 'token ' + gitToken,
     }
   };
 
@@ -19,8 +19,8 @@ function getRepoContributors(repoOwner, repoName, cb) {
       result.push = repos[avatar_url];
     }
     console.log(result);
-    cb(err, repos); //need to loop through the parsed data to find the avatar_url
-  });
+    cb(err, result);
+  })
 }
 
 getRepoContributors("jquery", "jquery", function(err, result) {
